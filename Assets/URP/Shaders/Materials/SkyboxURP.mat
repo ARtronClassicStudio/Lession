@@ -15,15 +15,14 @@ MonoBehaviour:
   version: 5
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SkyboxURP
   m_Shader: {fileID: -6465566751694194690, guid: 9bb65aa1d05cb45498dc6152e6163298, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -33,6 +32,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Cubemap_2da05c898f174952b3abfb812e8a436e:
+        m_Texture: {fileID: 8900000, guid: db801f3da09d3024ab01b457718d8bee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_dfd285a07a9a4b578b0a633e6b492c7b:
         m_Texture: {fileID: 2800000, guid: 6fa3f446deee84c52aec507bd0aca28c, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -42,6 +45,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseCube:
+        m_Texture: {fileID: 8900000, guid: 18ec2d52be8f4524a97c25a2ed27838e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseCube2:
         m_Texture: {fileID: 8900000, guid: db801f3da09d3024ab01b457718d8bee, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -61,10 +68,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints: []
     m_Floats:
+    - Boolean_6325a7cb1f9c408690d9e422fac732f2: 0
+    - Boolean_cab28d9bf605495b9e46e3225ec03b7f: 0
     - Vector1_30b8e2282e6f4ba78079c3b9a9bc16dc: 5
+    - Vector1_4039b22faaa2442fb171460350d19a27: -3
+    - Vector1_5c84374adef84c34ab556c949a9356d3: 0.62
+    - Vector1_5d96f66e36ee47d88130bc7294ad2b97: 0.92
+    - Vector1_62759d4ee3a1497d87bc7a3a7a0e8a1e: 50
+    - Vector1_b507c39bc9f447a09871d64844c501b6: 2.9
     - Vector1_c9322bd2ab2a44e58a45368a8d6bd02b: -9
+    - Vector1_cfde43b9e9bc4d7ba6d0bb2b0314402e: 0.11
+    - _Position: -0.0000014305115
+    - _Size: 17.3
+    - _Speed: 0.005
     m_Colors:
     - Color_30e7495591114d738aba1a7a3099cc36: {r: 0, g: 0.4123609, b: 1, a: 0}
     - Color_7e22144b4dec4287b3e99c1a251654f8: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0}

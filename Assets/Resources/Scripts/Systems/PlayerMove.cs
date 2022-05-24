@@ -7,7 +7,6 @@ public class PlayerMove : ComponentSystem
     public float l;
     public Vector2 mouse;
 
-
     protected override void OnCreate()
     {
         entityQuery = GetEntityQuery(ComponentType.ReadOnly<PlayerData>(),
@@ -21,10 +20,6 @@ public class PlayerMove : ComponentSystem
        Entities.With(entityQuery).ForEach(
            (Entity entity,PlayerComponent component,ref PlayerData player,ref MoveData move) => 
            {
-
-
-
-
                if (component)
                {
                    Quaternion o = Quaternion.Euler(0, mouse.y, 0);
@@ -38,19 +33,16 @@ public class PlayerMove : ComponentSystem
                    Camera.main.transform.rotation = rotation;
                    Camera.main.transform.position = position;
 
+                   if (player.enabledFX)
+                   {
+                       component.RunFX();
+                   }
 
                    mouse.y -= player.MoveCamera.x;
                    mouse.x -= player.MoveCamera.y;
                    mouse.x = Mathf.Clamp(mouse.x, -10, 70);
 
-
-
-
-
-                   if (player.Sprint != 0)
-                   {
-                       component.transform.position += component.transform.forward * component.speed * 100 * Time.DeltaTime;
-                   }
+                   component.skybox.SetFloat("_Position",component.blend);
 
                    if (player.Move.x != 0)
                    {

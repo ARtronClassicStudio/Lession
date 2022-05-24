@@ -1,7 +1,7 @@
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
-using System.Collections;
+using System;
 using UnityEngine.InputSystem;
 
 public class PlayerSystem : ComponentSystem
@@ -10,11 +10,11 @@ public class PlayerSystem : ComponentSystem
     private EntityQuery query;
     private InputAction InputPosition;
     private InputAction InputCamera;
-    private InputAction InputSprint;
+    private InputAction InputFX;
      
     private float2 pose;
     private float2 camera;
-    private float sprint;
+    private float enabledFX ;
 
     protected override void OnCreate()
     {
@@ -46,12 +46,12 @@ public class PlayerSystem : ComponentSystem
         InputCamera.Enable();
         #endregion
         #region Sprint
-        InputSprint = new InputAction(name: "sprint", binding: "<Keyboard>/Space");
+        InputFX = new InputAction(name: "sprint", binding: "<Keyboard>/Space");
 
-        InputSprint.performed += context => { sprint = context.ReadValue<float>(); };
-        InputSprint.started += context => { sprint = context.ReadValue<float>(); };
-        InputSprint.canceled += context => { sprint = context.ReadValue<float>(); };
-        InputSprint.Enable();
+        InputFX.performed += context => { enabledFX = context.ReadValue<float>(); };
+        InputFX.started += context => { enabledFX = context.ReadValue<float>(); };
+        InputFX.canceled += context => { enabledFX = context.ReadValue<float>(); };
+        InputFX.Enable();
         #endregion
 
     }
@@ -60,7 +60,7 @@ public class PlayerSystem : ComponentSystem
     {
         InputPosition.Disable();
         InputCamera.Disable();
-        InputSprint.Disable();
+        InputFX.Disable();
     }
 
     protected override void OnUpdate()
@@ -70,8 +70,7 @@ public class PlayerSystem : ComponentSystem
             {
                 player.Move = pose;
                 player.MoveCamera = camera;
-                player.Sprint = sprint;
-
+                player.enabledFX = Convert.ToBoolean(enabledFX);
             });
 
     }

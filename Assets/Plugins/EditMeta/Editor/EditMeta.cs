@@ -99,4 +99,57 @@ internal class EditMeta : EditorWindow
             EditorUtility.DisplayDialog("Warrning", "No file selected!", "OK");
         }
     }
+    [MenuItem("Assets/Edit Meta/Open to/Visual Studio as File")]
+    internal static void OpenVisualStudioAsFile()
+    {
+        if (File.Exists(AssetDatabase.GetAssetPath(Selection.activeObject)))
+        {
+            Process.Start("devenv.exe", "/edit " + Path.GetFullPath(AssetDatabase.GetAssetPath(Selection.activeObject)));
+        }
+        else
+        {
+            EditorUtility.DisplayDialog("Warrning", "No file selected!", "OK");
+        }
+    }
+
+    [MenuItem("Assets/Edit Meta/Convert/to png")]
+    internal static void ConvertPNG()
+    {
+        if (File.Exists(AssetDatabase.GetAssetPath(Selection.activeObject)))
+        {
+            for (int i = 0; i < Selection.count; i++)
+            {
+                File.Copy(AssetDatabase.GetAssetPath(Selection.objects[i]), AssetDatabase.GetAssetPath(Selection.objects[i]) + ".png");
+            }
+           
+            AssetDatabase.Refresh();
+            //Texture2D tex = new Texture2D(1, 1);
+            //tex.LoadImage(File.ReadAllBytes(AssetDatabase.GetAssetPath(Selection.activeObject)));
+            //File.WriteAllBytes(AssetDatabase.GetAssetPath(Selection.activeObject)+".png",tex.EncodeToPNG());
+            
+        }
+        else
+        {
+            EditorUtility.DisplayDialog("Warrning", "No file selected!", "OK");
+        }
+    }
+
+}
+
+public class MessageBox
+{
+    internal static void Show(string value)
+    {
+        EditorUtility.DisplayDialog("Information",value,"ok");
+    }
+}
+
+public class ViewPNG : EditorWindow
+{
+    public Texture2D texture;
+
+    private void OnGUI()
+    {
+        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), texture, ScaleMode.ScaleToFit);
+    }
 }
