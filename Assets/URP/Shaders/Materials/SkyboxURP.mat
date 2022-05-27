@@ -79,9 +79,9 @@ Material:
     - Vector1_b507c39bc9f447a09871d64844c501b6: 2.9
     - Vector1_c9322bd2ab2a44e58a45368a8d6bd02b: -9
     - Vector1_cfde43b9e9bc4d7ba6d0bb2b0314402e: 0.11
-    - _Position: -0.0000014305115
+    - _Position: 0
     - _Size: 17.3
-    - _Speed: 0.005
+    - _Speed: 0
     m_Colors:
     - Color_30e7495591114d738aba1a7a3099cc36: {r: 0, g: 0.4123609, b: 1, a: 0}
     - Color_7e22144b4dec4287b3e99c1a251654f8: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0}
